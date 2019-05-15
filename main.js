@@ -20,15 +20,20 @@ render(
 setInterval(() => {
   render(
     html`
-      <h1>${document.title}</h1>
-      <p>
-        <code>main.js</code>は<a href=${import.meta.url}
-          ><code>${import.meta.url}</code></a
-        >に存在します。
-      </p>
-      <p>
-        現在時刻は${new Date().toLocaleString()}です。
-      </p>
+      <style>
+        @import "https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css";
+      </style>
+      <article class="markdown-body">
+        <h1>${document.title}</h1>
+        <p>
+          <code>main.js</code>は<a href=${import.meta.url}
+            ><code>${import.meta.url}</code></a
+          >に存在します。
+        </p>
+        <p>
+          現在時刻は${new Date().toLocaleString()}です。
+        </p>
+      </article>
     `,
     document.body
   );
