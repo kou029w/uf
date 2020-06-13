@@ -2,7 +2,7 @@ import {
   html,
   render as litRender,
 } from "https://unpkg.com/lit-html@1.1.2/lit-html.js?module";
-import "https://cdnjs.cloudflare.com/ajax/libs/markdown-it/9.1.0/markdown-it.min.js";
+import "https://cdn.jsdelivr.net/npm/markdown-it@11.0.0/dist/markdown-it.min.js";
 const { url } = import.meta;
 const lang = "ja";
 const dir = "ltr";
