@@ -6,7 +6,6 @@
 
 - unpkg.com
   - lit-html
-- cdnjs.com
-  - markdown-it
 - jsdelivr.net
+  - markdown-it
   - now.css
