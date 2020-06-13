@@ -1,6 +1,6 @@
 import {
   html,
-  render as litRender
+  render as litRender,
 } from "https://unpkg.com/lit-html@1.1.2/lit-html.js?module";
 import "https://cdnjs.cloudflare.com/ajax/libs/markdown-it/9.1.0/markdown-it.min.js";
 const { url } = import.meta;
@@ -14,9 +14,7 @@ const head = () => html`
     href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css"
   />
 `;
-const jsLink = html`
-  <a href=${url}>${url}</a>
-`;
+const jsLink = html` <a href=${url}>${url}</a> `;
 const body = ({ date, readme }) => html`
   <main class="markdown-body">
     ${readme}
@@ -37,14 +35,14 @@ const fetchReadme = async () => {
 };
 const state = {
   readme: undefined,
-  date: new Date().toLocaleString()
+  date: new Date().toLocaleString(),
 };
 const render = () => {
   Object.assign(document.documentElement, { lang, dir });
   litRender(head(), document.head);
   litRender(body(state), document.body);
 };
-fetchReadme().then(html => {
+fetchReadme().then((html) => {
   state.readme = html;
   render();
 });
