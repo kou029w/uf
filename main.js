@@ -11,12 +11,12 @@ const head = () => html`
   <meta name="viewport" content="width=device-width" />
   <link
     rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/github-markdown-css/3.0.1/github-markdown.min.css"
+    href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
   />
 `;
 const jsLink = html` <a href=${url}>${url}</a> `;
 const body = ({ date, readme }) => html`
-  <main class="markdown-body">
+  <main>
     ${readme}
     <section>
       <h2>JavaScriptによって書き込まれているセクション</h2>
