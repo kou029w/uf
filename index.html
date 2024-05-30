@@ -1,41 +1,24 @@
 <!DOCTYPE html>
 <title>uf</title>
 <meta name="viewport" content="width=device-width" />
-<link
-  rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1/new.min.css"
-/>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/alpinejs@3/dist/cdn.min.js"
-></script>
-<script
-  defer
-  src="https://cdn.jsdelivr.net/npm/marked@12/marked.min.js"
-></script>
+<script type="module">
+  for (const t of document.querySelectorAll("template[id]")) {
+    customElements.define(
+      t.id,
+      class extends HTMLElement {
+        constructor() {
+          super();
+          this.attachShadow({ mode: "open" }).append(t.content);
+        }
+      },
+    );
+  }
+</script>
+<template id="x-article">
+  <slot></slot>
+</template>
 <main>
-  <section
-    x-data="{ readme: `` }"
-    x-init="$nextTick(async () => {
-      const res = await fetch(`README.md`);
-      const text = await res.text();
-      readme = marked.parse(text);
-    })"
-    x-html="readme"
-  ></section>
-  <section>
-    <h2>Alpine.js によって書き換えてみるテスト</h2>
-    <p>
-      現在時刻は
-      <time
-        x-data="{ date: new Date() }"
-        x-init="setInterval(() => date = new Date(), 1000)"
-        x-text="date.toLocaleString()"
-        :datetime="date.toISOString()"
-      ></time>
-      です。
-    </p>
-  </section>
+  <x-article>content</x-article>
 </main>
 <footer>
   <small>
